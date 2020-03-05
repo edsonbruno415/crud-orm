@@ -7,7 +7,7 @@ const model = require("./models/index");
 //Routes
 const pessoas = require("./routes/pessoa");
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "ejs");
