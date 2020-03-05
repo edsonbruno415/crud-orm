@@ -1,6 +1,6 @@
 const index = async({ Pessoa }, req, res) => {
     const pessoas = await Pessoa.findAll();
-    res.send(pessoas);
+    res.render("pessoa/index", { pessoas });
 }
 
 module.exports = {
