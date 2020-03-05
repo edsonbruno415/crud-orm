@@ -33,10 +33,21 @@ const updateForm = async({Pessoa}, req, res) =>{
     res.render("pessoa/update", { pessoa : pessoaQuery.dataValues });
 }
 
+const updatePessoa = async({Pessoa}, req, res)=>{
+    const {id, nome, nascimento, cargo} = req.body;
+    await Pessoa.update({
+        nome,
+        nascimento,
+        cargo
+    }, { where: { id } });
+    res.redirect("/pessoas");
+}
+
 module.exports = {
     index,
     deletePessoa,
     createForm,
     createPessoa,
-    updateForm
+    updateForm,
+    updatePessoa
 }
