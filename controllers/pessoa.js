@@ -1,8 +1,17 @@
-const index = async({ Pessoa }, req, res) => {
+const index = async ({ Pessoa }, req, res) => {
     const pessoas = await Pessoa.findAll();
     res.render("pessoa/index", { pessoas });
 }
 
+const deletePessoa = async ({ Pessoa }, req, res) => {
+    const { id } = req.params;
+    Pessoa.destroy({
+        where: { id : id }
+    });
+    res.redirect("/pessoas");
+}
+
 module.exports = {
-    index
+    index,
+    deletePessoa
 }

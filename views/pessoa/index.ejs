@@ -1,24 +1,26 @@
 <%- include("../partials/header") %>
-<div id="main">
-    <a type="button" class="btn btn-secondary btn-lg btn-block" href="/create" >Nova Pessoa</a>
-    <table class="table table-hover table-bordered table-striped">
-        <tr class="thead-dark">
-            <th>Nome</th>
-            <th>Cargo</th>
-            <th>Opções</th>
-        </tr>
-        <% pessoas.map( pessoa => { %>
-        <tr>
-            <td><%-pessoa.nome%></td>
-            <td><%-pessoa.cargo%></td>
-            <td>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <a type="button" class="btn btn-secondary" href="/update/<%-pessoa.id%>">Editar</a>
-                    <a type="button" class="btn btn-secondary" href="/delete/<%-pessoa.id%>">Excluir</a>
-                </div>
-            </td>
-        </tr>
-        <% }) %>
-    </table>
+<div id="container-fluid">
+    <div class="w-95 p-3 mx-auto">
+        <a type="button" class="btn btn-secondary btn-lg btn-block" href="/create">Nova Pessoa</a>
+        <table class="table table-hover table-bordered table-striped">
+            <tr class="thead-dark">
+                <th>Nome</th>
+                <th>Cargo</th>
+                <th>Opções</th>
+            </tr>
+            <% pessoas.map( pessoa => { %>
+            <tr>
+                <td><%-pessoa.nome%></td>
+                <td><%-pessoa.cargo%></td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a type="button" class="btn btn-secondary" href="/pessoas/update/<%-pessoa.id%>">Editar</a>
+                        <a type="button" class="btn btn-secondary" href="/pessoas/delete/<%-pessoa.id%>" onclick="return confirm('Deseja excluir o registro de <%-pessoa.nome%> ?')">Excluir</a>
+                    </div>
+                </td>
+            </tr>
+            <% }) %>
+        </table>
+    </div>
 </div>
 <%- include("../partials/footer") %>
