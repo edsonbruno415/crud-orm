@@ -19,6 +19,6 @@ app.get("/", (req, res) => {
 
 app.use("/pessoas", pessoas(model.models));
 
-model.sequelize.sync().then(() => {
+model.sequelize.sync({force: true}).then(() => {
     app.listen(port, () => console.log("Application running on ", port));
 });

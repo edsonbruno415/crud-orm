@@ -10,10 +10,14 @@ const path = require("path");
     fs.readdirSync(__dirname)
         .filter((file) => file!=="index.js")
         .map(file => {
-            const model = require(path.join(__dirname,file))(sequelize, Sequelize.DataTypes);
+            const model = sequelize.import(path.join(__dirname,file));
             models[model.name] = model;
         });
-
+    Object.keys(models).forEach((modelName)=>{
+        if("associate" in models[modelName]){
+            models[modelName].associate(models);
+        }
+    });
 module.exports = {
     sequelize,
     models
