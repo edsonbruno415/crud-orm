@@ -11,7 +11,12 @@ const deletePessoa = async ({ Pessoa }, req, res) => {
     res.redirect("/pessoas");
 }
 
+const createForm = (req, res) =>{
+    res.render("pessoa/create");
+}
+
 module.exports = {
     index,
-    deletePessoa
+    deletePessoa,
+    createForm
 }

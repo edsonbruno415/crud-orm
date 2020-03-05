@@ -1,0 +1,22 @@
+<%- include("../partials/header")%>
+<div class="container-fluid">
+    <div class="mx-auto p-3 mw-100" style="width: 980px;">
+        <h1 class="text-center">Cadastro</h1>
+        <form method="POST" action="/pessoas/create">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo">
+                </div>
+                <div class="form-group">
+                    <label for="nascimento">Nascimento</label>
+                    <input type="text" class="form-control" id="nascimento" name="nascimento" placeholder="1997-06-30">
+                </div>
+                <div class="form-group">
+                    <label for="cargo">Cargo</label>
+                    <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Desenvolvedor Junior">
+                </div>
+                <button class="btn btn-secondary btn-block btn-lg">Salvar</button>
+        </form>
+    </div>
+</div>
+<%- include("../partials/footer")%>
