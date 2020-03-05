@@ -1,7 +1,7 @@
 const PessoaModel = (sequelize, DataTypes) => {
     const Pessoa = sequelize.define("Pessoa",{
         nome: DataTypes.STRING,
-        nascimento: DataTypes.DATE,
+        nascimento: DataTypes.DATEONLY,
         cargo: DataTypes.STRING
     });
 

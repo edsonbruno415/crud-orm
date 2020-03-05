@@ -14,8 +14,6 @@ const path = require("path");
             models[model.name] = model;
         });
 
-console.log(models);
-
 module.exports = {
     sequelize,
     models
