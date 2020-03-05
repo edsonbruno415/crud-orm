@@ -25,9 +25,18 @@ const createPessoa = async({Pessoa}, req, res) => {
     res.redirect("/pessoas");
 }
 
+const updateForm = async({Pessoa}, req, res) =>{
+    const { id } = req.params;
+    const pessoaQuery = await Pessoa.findOne({
+        where: { id }
+    });
+    res.render("pessoa/update", { pessoa : pessoaQuery.dataValues });
+}
+
 module.exports = {
     index,
     deletePessoa,
     createForm,
-    createPessoa
+    createPessoa,
+    updateForm
 }
